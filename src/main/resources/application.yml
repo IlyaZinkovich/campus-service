@@ -1,0 +1,47 @@
+spring:
+  jpa:
+    hibernate.ddl-auto: update
+    show-sql: true
+  h2:
+    console:
+      enabled: true
+  jackson:
+    serialization:
+      write_dates_as_timestamps: false
+
+server:
+  port: 8088
+
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+
+security:
+  basic:
+    enabled: false
+
+management:
+  security:
+    enabled: false
+
+---
+
+spring:
+  profiles: container
+  datasource:
+    url: jdbc:postgresql://postgres:5432/campusdb
+    username: campus
+    password: campus
+    driverClassName: org.postgresql.Driver
+  jpa:
+    hibernate.ddl-auto: update
+    show-sql: true
+  h2:
+    console:
+      enabled: true
+  jackson:
+    serialization:
+      write_dates_as_timestamps: false
+
+server:
+  port: 8080

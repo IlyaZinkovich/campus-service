@@ -10,7 +10,7 @@ import org.springframework.web.client.RestTemplate;
 
 @Configuration
 @EnableJpaRepositories(basePackages = "com.campus.repository")
-@PropertySource("classpath:application.properties")
+@PropertySource("classpath:application.yml")
 @EntityScan(basePackages = {"com.campus.model"})
 @EnableTransactionManagement
 public class RepositoryConfig {
