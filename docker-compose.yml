@@ -1,0 +1,23 @@
+version: '2'
+
+services:
+  campusdb:
+    image: postgres:latest
+    environment:
+      - POSTGRES_DB=campusdb
+      - POSTGRES_USER=campus
+      - POSTGRES_PASSWORD=campus
+    ports:
+      - 5432:5432
+    volumes:
+      - data:/var/lib/postgresql/data
+  
+  campus-service:
+    image: ilyazinkovich/campus-service
+    links:
+      - campusdb:postgres
+    ports:
+      - 8088:8080
+
+volumes:
+  data: 
